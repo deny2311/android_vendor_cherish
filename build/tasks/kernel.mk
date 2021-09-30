@@ -215,6 +215,9 @@ ifeq ($(TARGET_KERNEL_CLANG_COMPILE),true)
     else
         # Use the default version of clang if TARGET_KERNEL_CLANG_VERSION hasn't been set by the device config
         KERNEL_CLANG_VERSION := $(LLVM_PREBUILTS_VERSION)
+    else
+        # Use dedicated path for latest clang
+        KERNEL_CLANG_VERSION := clang-latest
     endif
     TARGET_KERNEL_CLANG_PATH ?= $(BUILD_TOP)/prebuilts/clang/host/$(HOST_PREBUILT_TAG)/$(KERNEL_CLANG_VERSION)
     ifeq ($(KERNEL_ARCH),arm64)
