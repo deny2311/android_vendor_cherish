@@ -40,7 +40,7 @@ SOONG_CONFIG_cherishGlobalVars += \
     target_process_sdk_version_override \
     target_surfaceflinger_udfps_lib \
     target_uses_prebuilt_dynamic_partitions \
-    uses_camera_parameter_lib
+    uses_camera_parameter_lib \
 
 SOONG_CONFIG_NAMESPACES += cherishNvidiaVars
 SOONG_CONFIG_cherishNvidiaVars += \
@@ -55,7 +55,9 @@ SOONG_CONFIG_cherishQcomVars += \
     supports_hw_fde_perf \
     uses_pre_uplink_features_netmgrd \
     uses_qcom_bsp_legacy \
-    uses_qti_camera_device
+    uses_qti_camera_device \
+    needs_camera_boottime_timestamp \
+    libbinder_has_the_same_header
 
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
@@ -70,6 +72,7 @@ SOONG_CONFIG_cherishGlobalVars_has_legacy_camera_hal1 := $(TARGET_HAS_LEGACY_CAM
 SOONG_CONFIG_cherishGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
 SOONG_CONFIG_cherishGlobalVars_ignores_ftp_pptp_conntrack_failure := $(TARGET_IGNORES_FTP_PPTP_CONNTRACK_FAILURE)
 SOONG_CONFIG_cherishGlobalVars_needs_camera_boottime := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
+SOONG_CONFIG_cherishQcomVars_libbinder_has_the_same_header := $(TARGET_SAME_BINDER_HEADER_WITH_SYSTEM)
 SOONG_CONFIG_cherishGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
 SOONG_CONFIG_cherishGlobalVars_target_uses_prebuilt_dynamic_partitions := $(TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS)
 SOONG_CONFIG_cherishNvidiaVars_uses_nv_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
