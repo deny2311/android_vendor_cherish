@@ -56,7 +56,6 @@ SOONG_CONFIG_cherishQcomVars += \
     uses_pre_uplink_features_netmgrd \
     uses_qcom_bsp_legacy \
     uses_qti_camera_device \
-    needs_camera_boottime_timestamp \
     libbinder_has_the_same_header
 
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
