@@ -41,7 +41,7 @@ SOONG_CONFIG_cherishGlobalVars += \
     target_surfaceflinger_udfps_lib \
     target_uses_prebuilt_dynamic_partitions \
     uses_camera_parameter_lib \
-    uses_egl_display_array
+    uses_egl_display_array \
 
 SOONG_CONFIG_NAMESPACES += cherishNvidiaVars
 SOONG_CONFIG_cherishNvidiaVars += \
@@ -50,7 +50,8 @@ SOONG_CONFIG_cherishNvidiaVars += \
 SOONG_CONFIG_NAMESPACES += cherishQcomVars
 SOONG_CONFIG_cherishQcomVars += \
     supports_extended_compress_format \
-    uses_pre_uplink_features_netmgrd
+    uses_pre_uplink_features_netmgrd \
+    libbinder_has_the_same_header
 
 # Only create display_headers_namespace var if dealing with UM platforms to avoid breaking build for all other platforms
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
@@ -73,6 +74,7 @@ SOONG_CONFIG_cherishQcomVars_supports_extended_compress_format := $(AUDIO_FEATUR
 SOONG_CONFIG_cherishGlobalVars_uses_egl_display_array := $(TARGET_USES_EGL_DISPLAY_ARRAY)
 SOONG_CONFIG_cherishGlobalVars_gralloc_handle_has_reserved_size := $(TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE)
 SOONG_CONFIG_cherishQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD)
+SOONG_CONFIG_cherishQcomVars_libbinder_has_the_same_header := $(TARGET_SAME_BINDER_HEADER_WITH_SYSTEM)
 
 # Set default values
 BOOTLOADER_MESSAGE_OFFSET ?= 0
